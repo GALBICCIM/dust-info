@@ -2,6 +2,14 @@ export interface InfoItem {
 	informCode: string;
 	informGrade: string;
 	informOverall: string;
-	informData: string;
-	dateTime: string;
+	dataTime: string;
+}
+
+export interface RegionGrade {
+	region: string;
+	grade: string;
+}
+
+export interface ParsedInfoItem extends InfoItem {
+	parsedInformGrade: RegionGrade[];
 }

@@ -8,7 +8,7 @@ const App: React.FC = () => {
 				<Route path="/" element={<Home />} />
 				<Route path="/pm10" element={<FineDustInfo />} />
 				<Route path="/pm25" element={<UltraFineDustInfo />} />
-				<Route path="/o3" element={<OzoneInfo />} />
+				<Route path="/ozone" element={<OzoneInfo />} />
 			</Routes>
 		</Router>
 	);
