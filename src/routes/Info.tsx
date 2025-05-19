@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import type { ParsedInfoItem } from "types/InfoItem.type";
-import { getDustInfo } from "utils";
+import { getDustInfo, getInfoLabel } from "utils";
 import GoBack from "components/GoBack";
 
 const apiKeyEC = import.meta.env.VITE_API_KEY_EC;
 
-const FineDustInfo: React.FC = () => {
+const Info: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [info, setInfo] = useState<ParsedInfoItem[] | null>(null);
 	const location = useLocation();
@@ -14,6 +14,8 @@ const FineDustInfo: React.FC = () => {
 		searchDate: string;
 		selectedInfo: string;
 	};
+
+	const infoLabel = getInfoLabel(selectedInfo);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -32,12 +34,12 @@ const FineDustInfo: React.FC = () => {
 			{isLoading && <h1>Loading...</h1>}
 			{!isLoading && info && (
 				<div>
-					<h1>정보</h1>
+					<h1>{infoLabel} 정보</h1>
 					<GoBack />
 
 					<ul>
-						{info.map((item) => (
-							<li key={item.informCode}>
+						{info.map((item, index) => (
+							<li key={index}>
 								<p>{item.informOverall}</p>
 								<ul>
 									{item.parsedInformGrade.map((regionInfo) => (
@@ -56,4 +58,4 @@ const FineDustInfo: React.FC = () => {
 	);
 };
 
-export default FineDustInfo;
+export default Info;
