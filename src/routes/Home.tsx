@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getTodayDate } from "utils";
 
 const Home: React.FC = () => {
-	const [date, setDate] = useState<string>("");
+	const today = getTodayDate();
+	const [searchDate, setSearchDate] = useState<string>(today);
 	const [selectedInfo, setSelectedInfo] = useState<string>("");
 
 	const onChangeDate = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setDate(event.target.value);
+		setSearchDate(event.target.value);
 	};
 
 	const onChangeInfo = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -20,7 +22,7 @@ const Home: React.FC = () => {
 			<div>
 				<label>
 					날짜 선택
-					<input type="date" value={date} onChange={onChangeDate} />
+					<input type="date" value={searchDate} onChange={onChangeDate} />
 				</label>
 				<br />
 				<label>
@@ -34,10 +36,12 @@ const Home: React.FC = () => {
 				</label>
 			</div>
 
-			<h2>선택된 날짜 : {date || "없음"}</h2>
+			<h2>선택된 날짜 : {searchDate || "없음"}</h2>
 			<h2>선택된 정보 : {selectedInfo || "없음"}</h2>
 
-			<Link to={selectedInfo === "O3" ? "ozone" : selectedInfo.toLowerCase()}>정보 보러가기</Link>
+			<Link to={"/info"} state={{ searchDate, selectedInfo }}>
+				정보 보러가기
+			</Link>
 		</div>
 	);
 };

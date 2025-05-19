@@ -1,14 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, FineDustInfo, UltraFineDustInfo, OzoneInfo } from "routes";
+import { Home, Info } from "routes";
 
 const App: React.FC = () => {
 	return (
 		<Router>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/pm10" element={<FineDustInfo />} />
-				<Route path="/pm25" element={<UltraFineDustInfo />} />
-				<Route path="/ozone" element={<OzoneInfo />} />
+				<Route path="/info" element={<Info />} />
 			</Routes>
 		</Router>
 	);
