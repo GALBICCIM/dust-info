@@ -3,6 +3,9 @@ export interface InfoItem {
 	informGrade: string;
 	informOverall: string;
 	dataTime: string;
+	imageUrl1: string;
+	imageUrl2: string;
+	imageUrl3: string;
 }
 
 export interface RegionGrade {
@@ -12,4 +15,5 @@ export interface RegionGrade {
 
 export interface ParsedInfoItem extends InfoItem {
 	parsedInformGrade: RegionGrade[];
+	imageUrls: [string, string, string];
 }

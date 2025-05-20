@@ -20,9 +20,9 @@ const Info: React.FC = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const items = await getDustInfo(searchDate, apiKeyEC);
-			const info = items.filter((item: ParsedInfoItem) => item.informCode === selectedInfo);
+			const parsedInfo = items.filter((item: ParsedInfoItem) => item.informCode === selectedInfo);
 
-			setInfo(info);
+			setInfo(parsedInfo);
 			setIsLoading((prev) => !prev);
 		};
 
@@ -48,6 +48,7 @@ const Info: React.FC = () => {
 										</li>
 									))}
 								</ul>
+								<div>{item.imageUrls.map((url, i) => (url ? <img key={i} src={url} alt={`이미지 ${i + 1}`} /> : <h3>이미지 없음</h3>))}</div>
 								<p>{item.dataTime}</p>
 							</li>
 						))}

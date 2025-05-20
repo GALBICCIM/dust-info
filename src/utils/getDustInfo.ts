@@ -14,7 +14,7 @@ const parseInformGrade = (rawGrade: string): RegionGrade[] => {
  * 실시간 미세먼지, 초미세먼지, 오존 정보를 불러오는 함수입니다.
  * @param searchDate 검색할 날짜
  * @param apiKey API 키
- * @returns informGrade를 파싱한 정보 객체의 배열
+ * @returns 정규화한 정보 객체의 배열
  */
 export const getDustInfo = async (searchDate: string, apiKey: string): Promise<ParsedInfoItem[]> => {
 	try {
@@ -24,6 +24,7 @@ export const getDustInfo = async (searchDate: string, apiKey: string): Promise<P
 		const items: InfoItem[] = data.response?.body?.items ?? [];
 		const parsedItems: ParsedInfoItem[] = items.map((item) => ({
 			...item,
+			imageUrls: [item.imageUrl1, item.imageUrl2, item.imageUrl3],
 			parsedInformGrade: parseInformGrade(item.informGrade),
 		}));
 
