@@ -16,7 +16,7 @@ const parseInformGrade = (rawGrade: string): RegionGrade[] => {
  * @param apiKey API 키
  * @returns 정규화한 정보 객체의 배열
  */
-export const getDustInfo = async (searchDate: string, apiKey: string): Promise<ParsedInfoItem[]> => {
+export const getAirQualityInfo = async (searchDate: string, apiKey: string): Promise<ParsedInfoItem[]> => {
 	try {
 		const data = await (
 			await fetch(`https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustFrcstDspth?serviceKey=${apiKey}&returnType=json&searchDate=${searchDate}`)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import type { ParsedInfoItem } from "types/InfoItem.type";
-import { getDustInfo, getInfoLabel } from "utils";
+import { getAirQualityInfo, getInfoLabel } from "utils";
 import GoBack from "components/GoBack";
 
 const apiKeyEC = import.meta.env.VITE_API_KEY_EC;
@@ -19,7 +19,7 @@ const Info: React.FC = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const items = await getDustInfo(searchDate, apiKeyEC);
+			const items = await getAirQualityInfo(searchDate, apiKeyEC);
 			const parsedInfo = items.filter((item: ParsedInfoItem) => item.informCode === selectedInfo);
 
 			setInfo(parsedInfo);
