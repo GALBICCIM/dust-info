@@ -1,4 +1,4 @@
-import type { RegionGrade, InfoItem, ParsedInfoItem } from "types/InfoItem.type";
+import type { RegionGrade, InfoItem, ParsedInfoItem } from "types/Info.type";
 
 const parseInformGrade = (rawGrade: string): RegionGrade[] => {
 	if (!rawGrade) return [];
