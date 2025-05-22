@@ -15,5 +15,5 @@ export interface RegionGrade {
 
 export interface ParsedInfoItem extends InfoItem {
 	parsedInformGrade: RegionGrade[];
-	imageUrls: [string, string, string];
+	imageUrls: string[];
 }

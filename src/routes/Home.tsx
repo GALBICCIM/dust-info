@@ -22,13 +22,13 @@ const Home: React.FC = () => {
 			<div>
 				<label>
 					날짜 선택
-					<input type="date" value={searchDate} onChange={onChangeDate} />
+					<input type="date" value={searchDate} onChange={onChangeDate} max={today} />
 				</label>
 				<br />
 				<label>
 					정보 선택
 					<select value={selectedInfo} onChange={onChangeInfo}>
-						<option value="">---조회할 정보를 선택하세요.---</option>
+						<option value="">--- 조회할 정보를 선택하세요 ---</option>
 						<option value="PM10">미세먼지</option>
 						<option value="PM25">초미세먼지</option>
 						<option value="O3">오존</option>
