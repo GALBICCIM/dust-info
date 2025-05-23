@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import { Home, Info } from "routes";
+import AppRoutes from "routes/AppRoutes";
 
 import GlobalStyle from "styles/GlobalStyle";
 
@@ -9,10 +9,7 @@ const App: React.FC = () => {
 		<>
 			<GlobalStyle />
 			<Router>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/info" element={<Info />} />
-				</Routes>
+				<AppRoutes />
 			</Router>
 		</>
 	);
