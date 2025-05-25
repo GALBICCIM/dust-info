@@ -36,3 +36,10 @@ export const Button = styled.button`
 	border-radius: 30px;
 	cursor: pointer;
 `;
+
+export const Label = styled.label`
+	padding: 10px 15px;
+	background-color: ${deepBlue};
+	border: none;
+	border-radius: 10px;
+`;

@@ -28,13 +28,17 @@ const Home: React.FC = () => {
 				<Style.Text size={2}>선택된 정보 : {selectedInfo || "없음"}</Style.Text>
 			</Style.Wrapper>
 
-			<Style.Wrapper flexDirection="row" gap={3}>
-				<Style.Wrapper flexDirection="row">
-					<label htmlFor="inputDate">날짜 선택</label>
+			<Style.Wrapper flexDirection="row" justifyContent="space-around" gap={10} style={{ width: "80%" }}>
+				<Style.Wrapper flexDirection="row" gap={1}>
+					<Style.Label htmlFor="inputDate">
+						<Style.Text>날짜 선택</Style.Text>
+					</Style.Label>
 					<input type="date" value={searchDate} onChange={onChangeDate} max={today} id="inputDate" />
 				</Style.Wrapper>
-				<Style.Wrapper flexDirection="row">
-					<label htmlFor="selectInfo">정보 선택</label>
+				<Style.Wrapper flexDirection="row" gap={1}>
+					<Style.Label htmlFor="selectInfo">
+						<Style.Text>정보 선택</Style.Text>
+					</Style.Label>
 					<select value={selectedInfo} onChange={onChangeInfo} id="selectInfo">
 						<option value="">--- 조회할 정보를 선택하세요 ---</option>
 						<option value="PM10">미세먼지</option>
