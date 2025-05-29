@@ -10,6 +10,12 @@ const parseInformGrade = (rawGrade: string): RegionGrade[] => {
 	});
 };
 
+const removePrefix = (rawText: string): string => {
+	if (!rawText) return "";
+
+	return rawText.replace(/^○ \[[^\]]+\]\s*/, "");
+};
+
 /**
  * 실시간 미세먼지, 초미세먼지, 오존 정보를 불러오는 함수입니다.
  * @param searchDate 검색할 날짜
@@ -24,8 +30,9 @@ export const getAirQualityInfo = async (searchDate: string, apiKey: string): Pro
 		const items: InfoItem[] = data.response?.body?.items ?? [];
 		const parsedItems: ParsedInfoItem[] = items.map((item) => ({
 			...item,
-			imageUrls: [item.imageUrl1, item.imageUrl2, item.imageUrl3],
 			parsedInformGrade: parseInformGrade(item.informGrade),
+			cleanedInformOverall: removePrefix(item.informOverall),
+			imageUrls: [item.imageUrl1, item.imageUrl2, item.imageUrl3],
 		}));
 
 		return parsedItems;
