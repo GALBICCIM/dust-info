@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { getTodayDate } from "utils";
 
+import { INFORMATIONS } from "constants/Infos";
+
 import * as Style from "styles/Home.styled";
 
 const Home: React.FC = () => {
@@ -41,9 +43,9 @@ const Home: React.FC = () => {
 					</Style.Label>
 					<select value={selectedInfo} onChange={onChangeInfo} id="selectInfo">
 						<option value="">--- 조회할 정보를 선택하세요 ---</option>
-						<option value="PM10">미세먼지</option>
-						<option value="PM25">초미세먼지</option>
-						<option value="O3">오존</option>
+						{INFORMATIONS.value.map((item, index) => (
+							<option value={item}>{INFORMATIONS.text[index]}</option>
+						))}
 					</select>
 				</Style.Wrapper>
 			</Style.Wrapper>
