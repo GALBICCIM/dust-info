@@ -9,6 +9,8 @@ import GoBack from "components/GoBack";
 
 import { REGION_LIST } from "constants/Regions";
 
+import * as Style from "styles/Info.styled";
+
 const apiKeyEC = import.meta.env.VITE_API_KEY_EC;
 
 const Info: React.FC = () => {
@@ -47,17 +49,18 @@ const Info: React.FC = () => {
 			{isLoading && <h1>Loading...</h1>}
 			{!isLoading && info && (
 				<div>
-					<h1>{infoLabel} 정보</h1>
+					<Style.Header>
+						<h1>{infoLabel} 정보</h1>
 
-					<select value={selectedRegion} onChange={onChangeRegion}>
-						<option value="">모든 지역</option>
-						{REGION_LIST.map((item) => (
-							<option value={item}>{item}</option>
-						))}
-					</select>
+						<select value={selectedRegion} onChange={onChangeRegion}>
+							<option value="">모든 지역</option>
+							{REGION_LIST.map((item) => (
+								<option value={item}>{item}</option>
+							))}
+						</select>
+						<GoBack />
+					</Style.Header>
 					<br />
-
-					<GoBack />
 
 					<p>{info.cleanedInformOverall}</p>
 					<ul>
