@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import type { HomeStyleProps } from "types/Style.type";
-
 import { deepBlue } from "constants/Colors";
 
 export const Container = styled.div`
@@ -13,19 +11,6 @@ export const Container = styled.div`
 	align-items: center;
 	gap: 5em;
 	background-color: transparent;
-`;
-
-export const Text = styled.p<HomeStyleProps>`
-	font-size: ${({ size }) => size || 1}rem;
-	color: ${({ color }) => color || "white"};
-`;
-
-export const Wrapper = styled.div<HomeStyleProps>`
-	display: flex;
-	flex-direction: ${({ flexDirection }) => flexDirection || "column"};
-	justify-content: ${({ justifyContent }) => justifyContent || "normal"};
-	align-items: ${({ alignItems }) => alignItems || "normal"};
-	gap: ${({ gap }) => gap || 0}em;
 `;
 
 export const Button = styled.button`

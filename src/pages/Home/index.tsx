@@ -6,7 +6,8 @@ import { getTodayDate } from "utils";
 
 import { INFORMATIONS } from "constants/Infos";
 
-import * as Style from "styles/Home.styled";
+import { Text, Wrapper } from "styles/GlobalStyle";
+import * as Style from "./styled";
 
 const Home: React.FC = () => {
 	const today = getTodayDate();
@@ -23,23 +24,23 @@ const Home: React.FC = () => {
 
 	return (
 		<Style.Container>
-			<Style.Text size={4}>대기질 정보 조회</Style.Text>
+			<Text size={4}>대기질 정보 조회</Text>
 
-			<Style.Wrapper alignItems="center" gap={2}>
-				<Style.Text size={2}>선택된 날짜 : {searchDate || "없음"}</Style.Text>
-				<Style.Text size={2}>선택된 정보 : {selectedInfo || "없음"}</Style.Text>
-			</Style.Wrapper>
+			<Wrapper alignItems="center" gap={2}>
+				<Text size={2}>선택된 날짜 : {searchDate || "없음"}</Text>
+				<Text size={2}>선택된 정보 : {selectedInfo || "없음"}</Text>
+			</Wrapper>
 
-			<Style.Wrapper flexDirection="row" justifyContent="space-around" gap={10} style={{ width: "80%" }}>
-				<Style.Wrapper flexDirection="row" gap={1}>
+			<Wrapper flexDirection="row" justifyContent="space-around" gap={10} style={{ width: "80%" }}>
+				<Wrapper flexDirection="row" gap={1}>
 					<Style.Label htmlFor="inputDate">
-						<Style.Text>날짜 선택</Style.Text>
+						<Text>날짜 선택</Text>
 					</Style.Label>
 					<input type="date" value={searchDate} onChange={onChangeDate} max={today} id="inputDate" />
-				</Style.Wrapper>
-				<Style.Wrapper flexDirection="row" gap={1}>
+				</Wrapper>
+				<Wrapper flexDirection="row" gap={1}>
 					<Style.Label htmlFor="selectInfo">
-						<Style.Text>정보 선택</Style.Text>
+						<Text>정보 선택</Text>
 					</Style.Label>
 					<select value={selectedInfo} onChange={onChangeInfo} id="selectInfo">
 						<option value="">--- 조회할 정보를 선택하세요 ---</option>
@@ -47,12 +48,12 @@ const Home: React.FC = () => {
 							<option value={item}>{INFORMATIONS.text[index]}</option>
 						))}
 					</select>
-				</Style.Wrapper>
-			</Style.Wrapper>
+				</Wrapper>
+			</Wrapper>
 
 			<Link to={"/info"} state={{ searchDate, selectedInfo }}>
 				<Style.Button>
-					<Style.Text>정보 보러가기</Style.Text>
+					<Text>정보 보러가기</Text>
 				</Style.Button>
 			</Link>
 		</Style.Container>

@@ -1,4 +1,4 @@
-export interface HomeStyleProps {
+export interface StyledItemProps {
 	size?: number;
 	color?: string;
 	flexDirection?: string;

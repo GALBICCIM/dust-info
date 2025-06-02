@@ -9,7 +9,7 @@ import GoBack from "components/GoBack";
 
 import { REGION_LIST } from "constants/Regions";
 
-import * as Style from "styles/Info.styled";
+import * as Style from "./styled";
 
 const apiKeyEC = import.meta.env.VITE_API_KEY_EC;
 
@@ -48,7 +48,7 @@ const Info: React.FC = () => {
 		<>
 			{isLoading && <h1>Loading...</h1>}
 			{!isLoading && info && (
-				<div>
+				<Style.Container>
 					<Style.Header>
 						<h1>{infoLabel} 정보</h1>
 
@@ -58,9 +58,9 @@ const Info: React.FC = () => {
 								<option value={item}>{item}</option>
 							))}
 						</select>
+
 						<GoBack />
 					</Style.Header>
-					<br />
 
 					<p>{info.cleanedInformOverall}</p>
 					<ul>
@@ -70,9 +70,9 @@ const Info: React.FC = () => {
 							</li>
 						))}
 					</ul>
-					<div>{info.imageUrls.map((url, index) => (url ? <img key={index} src={url} alt={`이미지 ${index + 1}`} /> : null))}</div>
+					<div>{info.imageUrls.map((url, index) => (url ? <Style.stateImg key={index} src={url} alt={`이미지 ${index + 1}`} /> : null))}</div>
 					<p>{info.dataTime}</p>
-				</div>
+				</Style.Container>
 			)}
 		</>
 	);

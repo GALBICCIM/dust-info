@@ -1,2 +1,2 @@
-export { default as Home } from "./Home";
-export { default as Info } from "./Info";
+export { default as Home } from "./Home/index";
+export { default as Info } from "./Info/index";

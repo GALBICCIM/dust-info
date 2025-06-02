@@ -1,8 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+import type { StyledItemProps } from "types/Style.type";
 
 import { deepSky } from "constants/Colors";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
    html {
       background-color: ${deepSky};
    }
@@ -58,4 +60,15 @@ const GlobalStyle = createGlobalStyle`
    }
 `;
 
-export default GlobalStyle;
+export const Wrapper = styled.div<StyledItemProps>`
+	display: flex;
+	flex-direction: ${({ flexDirection }) => flexDirection || "column"};
+	justify-content: ${({ justifyContent }) => justifyContent || "normal"};
+	align-items: ${({ alignItems }) => alignItems || "normal"};
+	gap: ${({ gap }) => gap || 0}em;
+`;
+
+export const Text = styled.p<StyledItemProps>`
+	font-size: ${({ size }) => size || 1}rem;
+	color: ${({ color }) => color || "white"};
+`;
