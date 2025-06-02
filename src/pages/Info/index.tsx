@@ -9,6 +9,7 @@ import GoBack from "components/GoBack";
 
 import { REGION_LIST } from "constants/Regions";
 
+import { Wrapper, Text } from "styles/GlobalStyle";
 import * as Style from "./styled";
 
 const apiKeyEC = import.meta.env.VITE_API_KEY_EC;
@@ -50,7 +51,7 @@ const Info: React.FC = () => {
 			{!isLoading && info && (
 				<Style.Container>
 					<Style.Header>
-						<h1>{infoLabel} 정보</h1>
+						<Text size={1.8}>{infoLabel} 정보</Text>
 
 						<select value={selectedRegion} onChange={onChangeRegion}>
 							<option value="">모든 지역</option>

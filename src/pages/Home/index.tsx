@@ -6,7 +6,7 @@ import { getTodayDate } from "utils";
 
 import { INFORMATIONS } from "constants/Infos";
 
-import { Text, Wrapper } from "styles/GlobalStyle";
+import { Text, Wrapper, Button } from "styles/GlobalStyle";
 import * as Style from "./styled";
 
 const Home: React.FC = () => {
@@ -52,9 +52,9 @@ const Home: React.FC = () => {
 			</Wrapper>
 
 			<Link to={"/info"} state={{ searchDate, selectedInfo }}>
-				<Style.Button>
+				<Button width="12vw" height="8vh">
 					<Text>정보 보러가기</Text>
-				</Style.Button>
+				</Button>
 			</Link>
 		</Style.Container>
 	);

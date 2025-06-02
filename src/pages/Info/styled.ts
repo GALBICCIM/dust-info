@@ -12,10 +12,10 @@ export const Container = styled.div`
 
 export const Header = styled.header`
 	width: 100%;
-	height: 40%;
+	height: 10vh;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 `;
 
 export const stateImg = styled.img`

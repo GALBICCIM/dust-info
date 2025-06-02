@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import type { StyledItemProps } from "types/Style.type";
 
-import { deepSky } from "constants/Colors";
+import { deepSky, deepBlue } from "constants/Colors";
 
 export const GlobalStyle = createGlobalStyle`
    html {
@@ -71,4 +71,13 @@ export const Wrapper = styled.div<StyledItemProps>`
 export const Text = styled.p<StyledItemProps>`
 	font-size: ${({ size }) => size || 1}rem;
 	color: ${({ color }) => color || "white"};
+`;
+
+export const Button = styled.button<StyledItemProps>`
+	width: ${({ width }) => width || "auto"};
+	height: ${({ height }) => height || "auto"};
+	background-color: ${deepBlue};
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
 `;
