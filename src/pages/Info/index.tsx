@@ -63,7 +63,7 @@ const Info: React.FC = () => {
 						<GoBack />
 					</Style.Header>
 
-					<p>{info.cleanedInformOverall}</p>
+					<Text size={1.5}>{info.cleanedInformOverall}</Text>
 					<ul>
 						{filteredRegion?.map((regionInfo) => (
 							<li key={regionInfo.region}>
