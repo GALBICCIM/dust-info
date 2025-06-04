@@ -51,11 +51,15 @@ const Home: React.FC = () => {
 				</Wrapper>
 			</Wrapper>
 
-			<Link to={"/info"} state={{ searchDate, selectedInfo }}>
-				<Button width="12vw" height="8vh">
-					<Text>정보 보러가기</Text>
-				</Button>
-			</Link>
+			{selectedInfo ? (
+				<Link to={"/info"} state={{ searchDate, selectedInfo }}>
+					<Button width="12vw" height="8vh">
+						<Text>정보 보러가기</Text>
+					</Button>
+				</Link>
+			) : (
+				<></>
+			)}
 		</Style.Container>
 	);
 };
