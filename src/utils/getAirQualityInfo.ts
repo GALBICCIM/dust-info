@@ -1,20 +1,6 @@
-import type { RegionGrade, InfoItem, ParsedInfoItem } from "types/Info.type";
+import { parseInformGrade, removePrefix } from "./preprocessing";
 
-const parseInformGrade = (rawGrade: string): RegionGrade[] => {
-	if (!rawGrade) return [];
-
-	return rawGrade.split(",").map((item) => {
-		const [region, grade] = item.split(/ *: */);
-
-		return { region, grade };
-	});
-};
-
-const removePrefix = (rawText: string): string => {
-	if (!rawText) return "";
-
-	return rawText.replace(/^○ \[[^\]]+\]\s*/, "");
-};
+import type { InfoItem, ParsedInfoItem } from "types/Info.type";
 
 /**
  * 실시간 미세먼지, 초미세먼지, 오존 정보를 불러오는 함수입니다.
