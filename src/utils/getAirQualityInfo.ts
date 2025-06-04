@@ -1,4 +1,4 @@
-import { parseInformGrade, removePrefix } from "./preprocessing";
+import { parseInformGrade, removePrefix } from "./preprocessing.utils";
 
 import type { InfoItem, ParsedInfoItem } from "types/Info.type";
 
